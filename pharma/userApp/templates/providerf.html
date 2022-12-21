@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Ввод данных для поставщика</h1>
+<form action="" method="post">
+{{ form.hidden_tag() }}
+    <div class="container">
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(class="form-control") }}<br>
+
+            {% for error in form.name.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.adress.label }}<br>
+            {{ form.adress(class="form-control") }}<br>
+            {% for error in form.adress.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.telethon.label }}<br>
+            {{ form.telethon(class="form-control") }}<br>
+            {% for error in form.telethon.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        {{ message }}
+    </div>
+</form>
+{% endblock %}

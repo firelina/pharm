@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Партии</h1>
+<ol>
+    {% for res in model %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ res.id }}</h5>
+            <p class="card-text">{{ res.goods_number }} Количество товаров </p>
+            <p class="card-text">{{ res.batch_date }} Дата поставки </p>
+              <p class="card-text">{{ res.id_provider }} Поставщик </p>
+              <p class="card-text">{{ res.id_drug }} Лекарство </p>
+          </div>
+            <p><a class="btn " href="/batch/{{ res.id }}/update">Редактировать</a></p>
+            <p><a class="btn " href="/batch/{{ res.id }}/delete">Удалить</a></p>
+        </div>
+    {% endfor %}
+</ol>
+</div>
+<div align="center">
+    <p><a class="btn " href="/batch/create">Добавить поставку</a></p>
+</div>
+{% endblock %}

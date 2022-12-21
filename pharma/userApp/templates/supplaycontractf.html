@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Ввод данных для договора поставки</h1>
+<form action="" method="post">
+{{ form.hidden_tag() }}
+    <div class="container">
+        <p>
+            {{ form.id_batch.label }}<br>
+            {{ form.id_batch() }}<br>
+
+            {% for error in form.id_batch.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.id_drugstore.label }}<br>
+            {{ form.id_drugstore() }}<br>
+            {% for error in form.id_drugstore.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.contract_date.label }}<br>
+            {{ form.contract_date(class="form-control") }}<br>
+            {% for error in form.contract_date.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.id_employee.label }}<br>
+            {{ form.id_employee() }}<br>
+            {% for error in form.id_employee.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.notes.label }}<br>
+            {{ form.notes(class="form-control") }}<br>
+            {% for error in form.notes.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        {{ message }}
+    </div>
+</form>
+{% endblock %}

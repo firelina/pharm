@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Поставщики</h1>
+<ol>
+    {% for res in model %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ res.id }}</h5>
+            <p class="card-text">{{ res.name }} Название поставщика </p>
+            <p class="card-text">{{ res.adress }} Адрес поставщика </p>
+              <p class="card-text">{{ res.telethon }} Телефон </p>
+          </div>
+            <p><a class="btn" href="/provider/{{ res.id }}/update">Редактировать</a></p>
+            <p><a class="btn" href="/provider/{{ res.id }}/delete">Удалить</a></p>
+        </div>
+    {% endfor %}
+</ol>
+</div>
+<div align="center">
+    <p><a class="btn" href="/provider/create">Добавить поставщика</a></p>
+</div>
+{% endblock %}

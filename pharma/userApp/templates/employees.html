@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Сотрудники</h1>
+<ol>
+    {% for res in model %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ res.id }}</h5>
+              <p class="card-text">{{ res.name }} Имя сотрудника </p>
+              <p class="card-text">{{ res.surname }} Фамилия сотрудника </p>
+              <p class="card-text">{{ res.fathername }} Отчество сотрудника </p>
+              <p class="card-text">{{ res.telethon }} Телефон </p>
+              <p class="card-text">{{ res.gender }} Пол сотрудника </p>
+              <p class="card-text">{{ res.birthday }} День рождения сотрудника </p>
+              <p class="card-text">{{ res.hire_date }} Дата найма сотрудника </p>
+              <p class="card-text">{{ res.salary }} Зарплата сотрудника </p>
+              <p class="card-text">{{ res.drugstore.name }} Аптека </p>
+          </div>
+            <p><a class="btn " href="/employee/{{ res.id }}/update">Редактировать</a></p>
+            <p><a class="btn " href="/employee/{{ res.id }}/delete">Удалить</a></p>
+        </div>
+
+    {% endfor %}
+</ol>
+</div>
+<div align="center">
+    <p><a class="btn " href="/employee/create">Добавить сотрудника</a></p>
+</div>
+{% endblock %}

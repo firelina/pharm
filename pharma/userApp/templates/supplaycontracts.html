@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Договоры поставки</h1>
+<ol>
+    {% for res in model %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ res.id }}</h5>
+            <p class="card-text">{{ res.id_batch }} Партия </p>
+            <p class="card-text">{{ res.id_drugstore }} Аптека </p>
+              <p class="card-text">{{ res.contract_date }} Дата заключения контракта </p>
+              <p class="card-text">{{ res.id_employee }} Работник </p>
+              <p class="card-text">{{ res.notes }} Заметки </p>
+          </div>
+            <p><a class="btn " href="/supplaycontract/{{ res.id }}/update">Редактировать</a></p>
+            <p><a class="btn " href="/supplaycontract/{{ res.id }}/delete">Удалить</a></p>
+        </div>
+    {% endfor %}
+</ol>
+</div>
+<div align="center">
+    <p><a class="btn " href="/supplaycontract/create">Добавить договор поставки</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Лекарства</h1>
+<ol>
+    {% for res in model %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ res.id }}</h5>
+            <p class="card-text">{{ res.price }} Цена лекарства </p>
+            <p class="card-text">{{ res.release_date }} Дата изготовления лекарства </p>
+              <p class="card-text">{{ res.id_provider }} Поставщик лекарства </p>
+              <p class="card-text">{{ res.consist }} Состав лекарства </p>
+              <p class="card-text">{{ res.suitability }} Годно ли лекарство </p>
+          </div>
+            <p><a class="btn" href="/drug/{{ res.id }}/update">Редактировать</a></p>
+            <p><a class="btn" href="/drug/{{ res.id }}/delete">Удалить</a></p>
+        </div>
+    {% endfor %}
+</ol>
+</div>
+<div align="center">
+    <p><a class="btn" href="/drug/create">Добавить лекарство</a></p>
+</div>
+{% endblock %}

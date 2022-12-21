@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Ввод данных для поставки</h1>
+<form action="" method="post">
+{{ form.hidden_tag() }}
+    <div class="container">
+        <p>
+            {{ form.goods_number.label }}<br>
+            {{ form.goods_number(class="form-control") }}<br>
+
+            {% for error in form.goods_number.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.batch_date.label }}<br>
+            {{ form.batch_date(class="form-control") }}<br>
+            {% for error in form.batch_date.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.id_provider.label }}<br>
+            {{ form.id_provider() }}<br>
+            {% for error in form.id_provider.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.id_drug.label }}<br>
+            {{ form.id_drug() }}<br>
+            {% for error in form.id_drug.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        {{ message }}
+    </div>
+</form>
+{% endblock %}

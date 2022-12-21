@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Работник</h1>
+<ol>
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ res.id }}</h5>
+            <p class="card-text">{{ res.name }} Имя сотрудника </p>
+            <p class="card-text">{{ res.surname }} Фамилия сотрудника </p>
+              <p class="card-text">{{ res.fathername }} Отчество сотрудника </p>
+              <p class="card-text">{{ res.telethon }} Телефон </p>
+              <p class="card-text">{{ res.gender }} Пол сотрудника </p>
+              <p class="card-text">{{ res.birthday }} День рождения сотрудника </p>
+              <p class="card-text">{{ res.hire_date }} Дата найма сотрудника </p>
+              <p class="card-text">{{ res.salary }} Зарплата сотрудника </p>
+              <p class="card-text">{{ pharm }} Аптека </p>
+          </div>
+        </div>
+
+</ol>
+</div>
+
+{% endblock %}
